@@ -2,13 +2,13 @@
 
 This was started with `dotnet new webapi`
 
-This tests the three flavors of [IOptions](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-5.0), and [Validation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-5.0#options-validation), and injection to services early on.
+This tests the three flavors of [IOptions](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options), and [Validation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-5.0#options-validation), and injection to services early on.
 
 ## Notes
 
-`Startup.ConfigureService` creates the options a a couple services that need them as parameters for their constructors.
+`Startup.ConfigureService` creates the options and a couple services that need them as parameters for their constructors.
 
-`Startup.Configure` takes all the options and validates them early  since validation is done when `Value` is referenced. If only you only inject into controllers, you won't know until the controller is called, which could be much later.
+`Startup.Configure` takes all the options and validates them early since validation is done when `Value` is referenced. If only you only inject into controllers, you won't know until the controller is called, which could be much later.
 
 `TestService` takes option classes in its constructor and is new'd up in `ConfigureServices`
 
